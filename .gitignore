@@ -17,6 +17,16 @@
 /.next/
 /out/
 
+# Env
+.env
+.env.local
+.env.*.local
+
+# Prisma / SQLite
+dev.db
+prisma/dev.db
+prisma/*.db
+
 # production
 /build
 
@@ -39,3 +49,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/app/generated/prisma
+
+/app/generated/prisma
