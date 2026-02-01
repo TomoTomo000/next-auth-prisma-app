@@ -20,7 +20,7 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: 'Next Auth × Prisma App',
+  title: 'NextAuth × Prisma App🚀',
   description: 'Next.js 14 と NextAuth.js 5 を使用した認証アプリケーションです。',
 };
 

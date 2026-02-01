@@ -10,7 +10,7 @@ export default async function Home() {
   }
   return (
     <main>
-      <h1 className='my-6 w-full font-bold text-center text-2xl text-black'>Next Auth × Prisma App</h1>
+      <h1 className='my-6 w-full font-bold text-center text-2xl text-black'>NextAuth × Prisma App🚀</h1>
       <div className='md:max-w-xl max-w-11/12 mx-auto w-full'>
         <div className='bg-zinc-100 rounded-lg p-4 max-w-2xl mx-auto text-sm text-zinc-700'>
           <p>このアプリケーションは、Next.js 14 と NextAuth.js 5 を使用して作成しています。</p>
@@ -18,7 +18,7 @@ export default async function Home() {
           <p>新規会員登録・ログイン・ログアウト機能を提供しています。</p>
         </div>
         <div className='mt-8'>
-          <h2 className='mb-6 w-full font-bold text-center text-xl text-black'>🔥機能を試してみる🔥</h2>
+          <h2 className='mb-6 w-full font-bold text-center text-xl text-black'>機能を試してみる🔥</h2>
           <div className='max-w-2xl mx-auto'>
               {session ? (
                 <>

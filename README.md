@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+NextAuth × Prisma App🚀
 
-## Getting Started
+Next.js 14（App Router）と NextAuth.js v5、Prisma を使った
+認証機能付きサンプルアプリケーションです。
+メール＋パスワードによるログインに加え、
+NextAuth の Credentials Provider を利用した独自認証フローを実装しています。
 
-First, run the development server:
+技術スタック
 
-```bash
+Next.js 14 (App Router)
+NextAuth.js v5
+Prisma ORM
+SQLite
+TypeScript
+Tailwind CSS
+Zod（バリデーション）
+
+実装機能
+新規会員登録（サインアップ）
+ログイン / ログアウト
+セッション管理（Server / Client 両対応）
+パスワードのハッシュ化（bcrypt）
+入力バリデーション（Zod）
+Snackbar による通知表示
+登録解除（ユーザー削除）※今後実装予定
+
+ディレクトリ構成（抜粋）
+.
+├─ app/
+│ ├─ (auth)/ ログイン・サインアップ関連ページ
+│ ├─ api/auth/ NextAuth handler
+│ └─ page.tsx
+├─ components/
+│ └─ auth/ LoginForm / LogoutButton など
+├─ lib/
+│ ├─ auth/ schema / action / repo
+│ └─ prisma.ts
+├─ prisma/
+│ └─ schema.prisma
+├─ auth.ts NextAuth 設定
+├─ auth.config.ts
+└─ README.md
+
+セットアップ手順
+
+リポジトリをクローン
+
+git clone https://github.com/TomoTomo000/next-auth-prisma-app.git
+
+cd next-auth-prisma-app
+
+パッケージをインストール
+
+npm install
+
+環境変数を設定
+
+.env ファイルを作成し、以下を設定してください。
+
+DATABASE_URL="file:./dev.db"
+AUTH_SECRET=your-secret
+
+Prisma マイグレーション
+
+npx prisma migrate dev
+
+開発サーバー起動
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
