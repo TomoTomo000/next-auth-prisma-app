@@ -53,10 +53,10 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return true;
     },
     async session({ session, token }) {
-      if (token.sub) {
+      if (session.user && token.sub) {
         session.user.id = token.sub;
       }
       return session;
-    },
+    }
   },
 });
