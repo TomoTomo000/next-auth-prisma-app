@@ -34,12 +34,13 @@ export const LoginForm = () => {
       redirect: false,
     });
 
-    if (res?.ok) {
-      snackbar.success('ログインしました');
-      router.push('/');
-    } else {
-      snackbar.error(res?.error ?? 'ログインに失敗しました');
+    if (res?.error) {
+      snackbar.error('メールアドレスまたはパスワードが違います');
+      return;
     }
+
+    snackbar.success('ログインしました');
+    router.push('/');
   };
     
   return (
