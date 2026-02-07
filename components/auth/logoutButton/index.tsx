@@ -18,7 +18,7 @@ export function LogoutButton() {
     <button
       type="button"
       onClick={onLogout}
-      className="w-full bg-white border border-zinc-300 font-bold text-zinc-600 text-sm rounded-lg p-3 hover:opacity-80"
+      className="cursor-pointer w-full bg-white border border-zinc-300 font-bold text-zinc-600 text-sm rounded-lg p-3 hover:opacity-80"
     >
       ログアウト
     </button>
