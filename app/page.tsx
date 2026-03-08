@@ -8,6 +8,8 @@ export default async function Home() {
     id: session?.user?.id,
     email: session?.user?.email
   }
+
+  console.log("Home Page: Session data", session, "User data", user, "Is logged in?", !!session && !!session.user);
   return (
     <main>
       <h1 className='my-6 w-full font-bold text-center text-2xl text-black'>NextAuth × Prisma App🚀</h1>
@@ -20,7 +22,7 @@ export default async function Home() {
         <div className='mt-8'>
           <h2 className='mb-6 w-full font-bold text-center text-xl text-black'>機能を試してみる🔥</h2>
           <div className='max-w-2xl mx-auto'>
-              {session ? (
+              {session?.user ? (
                 <>
                   <div className='w-full bg-green-100 rounded-lg p-4 text-sm leading-6 text-center'>
                     <p className='text-green-600 font-bold text-base'>ログイン中💭</p>
