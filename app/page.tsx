@@ -9,7 +9,6 @@ export default async function Home() {
     email: session?.user?.email
   }
 
-  console.log("Home Page: Session data", session, "User data", user, "Is logged in?", !!session && !!session.user);
   return (
     <main>
       <h1 className='my-6 w-full font-bold text-center text-2xl text-black'>NextAuth × Prisma App🚀</h1>
