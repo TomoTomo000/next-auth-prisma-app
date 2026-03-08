@@ -14,7 +14,7 @@ export default async function Home() {
       <div className='md:max-w-xl max-w-11/12 mx-auto w-full'>
         <div className='bg-zinc-100 rounded-lg p-4 max-w-2xl mx-auto text-sm text-zinc-700'>
           <p>このアプリケーションは、Next.js 14 と NextAuth.js 5 を使用して作成しています。</p>
-          <p>認証には Prisma ORM を使用し、SQLite データベースにユーザー情報を保存しています。</p>
+          <p>認証には Prisma ORM を使用し、Supabase データベースにユーザー情報を保存しています。</p>
           <p>新規会員登録・ログイン・ログアウト機能を提供しています。</p>
         </div>
         <div className='mt-8'>

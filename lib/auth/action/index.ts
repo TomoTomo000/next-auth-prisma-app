@@ -53,6 +53,7 @@ export async function signUpAction(prevState: AuthState, formData: FormData): Pr
       type: 'success',
     };
   } catch (error) {
+    console.error('Signup error:', error);
     return {
       message: 'サーバーエラーが発生しました。時間をおいて再度お試しください。',
       type: 'error',
