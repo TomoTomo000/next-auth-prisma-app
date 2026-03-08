@@ -18,17 +18,19 @@ function isBasicAuthenticated(req: NextRequest) {
 }
 
 export default auth(async (req: NextRequest) => {
-  // Basic Auth
-  if (process.env.NEXT_PUBLIC_BASIC_AUTH_ENABLED === 'true'
-      && process.env.NEXT_PUBLIC_APP_ENV !== 'local'
-      && !isBasicAuthenticated(req)) {
+  // ① Basic Auth
+  if (
+    process.env.NEXT_PUBLIC_BASIC_AUTH_ENABLED === 'true' &&
+    process.env.NEXT_PUBLIC_APP_ENV !== 'local' &&
+    !isBasicAuthenticated(req)
+  ) {
     return new NextResponse('Unauthorized', {
       status: 401,
       headers: { 'WWW-Authenticate': 'Basic realm="Secure Area"' },
     })
   }
 
-  // 認証
+  // ② NextAuth 認証
   const session = await auth()
   const isLoggedIn = !!session?.user
 
@@ -36,20 +38,19 @@ export default auth(async (req: NextRequest) => {
   const isAuthRoute = authRoutes.includes(nextUrl.pathname)
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname)
 
-  if (isAuthRoute) {
-    if (isLoggedIn) {
-      return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl))
-    }
-    return null
+  // 認証ページにアクセス
+  if (isAuthRoute && isLoggedIn) {
+    return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl))
   }
 
+  // 認証必須ページで未ログイン
   if (!isLoggedIn && !isPublicRoute) {
     return NextResponse.redirect(new URL('/login', nextUrl))
   }
 
-  return null
+  return NextResponse.next()
 })
 
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
-};
+}
