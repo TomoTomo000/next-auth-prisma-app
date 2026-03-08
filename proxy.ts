@@ -5,7 +5,6 @@ import { authRoutes, publicRoutes } from "@/route";
 
 export default auth((req: NextRequest, session) => {
   const { nextUrl } = req;
-  console.log("Middleware: Checking auth for", nextUrl.pathname);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
